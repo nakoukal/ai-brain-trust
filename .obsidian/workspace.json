@@ -180,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 448.5
+    "width": 279.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "36b65505b446c2d0",
+  "active": "412fe5b0af4eddec",
   "lastOpenFiles": [
     "Vítejte.md",
     "01 - AI NEWS/Pi Coding Agent.md",
