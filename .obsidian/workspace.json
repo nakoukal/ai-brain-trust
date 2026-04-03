@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 - AI NEWS/Pi Coding Agent.md",
+                "file": "01 - AI NEWS/Pi Coding Agent-.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Pi Coding Agent"
+              "title": "Pi Coding Agent-"
             }
           }
         ]
@@ -196,8 +196,9 @@
   },
   "active": "412fe5b0af4eddec",
   "lastOpenFiles": [
-    "Vítejte.md",
     "01 - AI NEWS/Pi Coding Agent.md",
+    "01 - AI NEWS/Pi Coding Agent-.md",
+    "Vítejte.md",
     "01 - AI NEWS",
     "README.md"
   ]

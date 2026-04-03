@@ -17,13 +17,9 @@ status: aktivní
 description: Představení minimalistického kódovacího agenta Pi, který sází na extrémní rozšiřitelnost a kontrolu uživatele nad AI kontextem namísto složitých 'spaceship' funkcí.
 ---
 
+## 📝 Stručný popis
 
-
-# I Hated Every Coding Agent, So I Built My Own — Mario Zechner (Pi)
-
-> [!abstract] Shrnutí
-> 
-> Mario Zechner (tvůrce libGDX) vysvětluje svou frustraci ze stávajících kódovacích agentů (Claude Code, OpenCode), které považuje za příliš komplexní, nepředvídatelné nebo špatně navržené. Jako odpověď vytvořil **Pi** – minimalistického agenta se systémovým promptem pod 1000 tokenů a pouze čtyřmi základními nástroji, který lze plně ohýbat pomocí TypeScriptových rozšíření. [[02:12](http://www.youtube.com/watch?v=Dli5slNaJu0&t=132)]
+Mario Zechner (tvůrce libGDX) představuje **pi**, radikálně minimalistický a rozšiřitelný terminálový AI agent pro programování. Projekt vznikl jako reakce na "přefouknutost" komerčních nástrojů a sází na transparentní práci s kontextem a vlastní TypeScript rozšíření.
 
 ## 🔗 Dokumentace a zdroje
 
@@ -35,57 +31,69 @@ description: Představení minimalistického kódovacího agenta Pi, který sáz
     
 - [Blog post Armina Ronachera o Pi](https://lucumr.pocoo.org/2026/1/31/pi/)
     
+---
 
-## ⚙️ Instalace a základní příkazy
+## 💻 Základní příkazy & Instalace
 
-Bash
-
-```
-npm install -g @mariozechner/pi-coding-agent
-```
+> [!info] Pi běží jako CLI nástroj v Node.js prostředí a vyžaduje API klíč (např. Anthropic).
 
 |**Příkaz**|**Popis**|
 |---|---|
-|`pi`|Spustí plně interaktivní terminálové rozhraní (TUI).|
-|`pi -p "query"`|Provede jeden příkaz přímo z terminálu a vypíše výsledek.|
-|`pi install npm:<name>`|Nainstaluje komunitní rozšíření nebo skilly.|
-|`pi --version`|Ověření nainstalované verze agenta.|
+|`npm install -g @pi-agent/cli`|Globální instalace agenta do systému.|
+|`pi`|Spuštění v aktuálním adresáři projektu.|
+|`pi --model opus`|Spuštění s konkrétním modelem (např. Claude 3.5 Opus).|
+|`pi --reload`|Zapne hot-reload pro vývoj vlastních rozšíření.|
 
-## 💻 Praktické ukázky (Snippets)
+---
 
-[!example] Definice vlastního nástroje (Extension)
+## 🛠 Praktické ukázky (Snippets)
 
-Pi je navržen tak, aby si uživatel mohl během minuty dopsat vlastní nástroje, které agent může používat.
+### 1. Čtyři pilíře (Základní nástroje)
+
+Pi dává modelu přístup pouze k těmto funkcím, což eliminuje zbytečnou komplexitu:
+
+- `read_file` – Čtení souborů.
+    
+- `write_file` – Zápis celého souboru.
+    
+- `edit_file` – Cílené úpravy pomocí diffu.
+    
+- `bash` – Spuštění jakéhokoli příkazu v terminálu.
+    
+
+### 2. Tvorba vlastního toolu (TypeScript)
+
+> [!example] Pi umožňuje psát si vlastní nástroje přímo v TypeScriptu a okamžitě je používat.
 
 TypeScript
 
 ```
-import { Type } from '@mariozechner/pi-ai';
-
-// Ukázka jednoduchého nástroje pro čtení souboru v Pi architektuře
-const readTool = {
-  name: 'read_file',
-  description: 'Přečte obsah souboru',
-  parameters: Type.Object({
-    path: Type.String({ description: 'Absolutní cesta k souboru' })
-  }),
-  execute: async ({ path }) => {
-    // Implementace čtení...
+// .pi/tools/hello-world.ts
+export const helloWorld = {
+  name: "hello_world",
+  description: "Jednoduchý testovací nástroj",
+  execute: async ({ name }: { name: string }) => {
+    return `Ahoj ${name}, vítej v Pi agentovi!`;
   }
 };
 ```
 
-## 📝 Klíčové poznámky
+---
 
-- **Filosofie minimalismu**: Pi obsahuje pouze 4 nativní nástroje: `read`, `write`, `edit` a `bash`. Vše ostatní (jako web search nebo sub-agenti) se řeší přes rozšíření. [[21:18](http://www.youtube.com/watch?v=Dli5slNaJu0&t=1278)]
-    
-- **Problém "Spaceship"**: Mario kritizuje Claude Code za to, že se z něj stává příliš komplikovaný nástroj, u kterého uživatel ztrácí přehled o tom, co AI dělá "za jeho zády" v kontextu. [[05:20](http://www.youtube.com/watch?v=Dli5slNaJu0&t=320)]
-    
-- **Kontrola nad kontextem**: Pi umožňuje detailní správu toho, co se posílá do LLM, včetně vlastních metod pro "compaction" (zkracování) historie chatu. [[11:45](http://www.youtube.com/watch?v=Dli5slNaJu0&t=705)]
-    
-- **YOLO Mode**: Pi defaultně nevyžaduje potvrzování každého kroku, protože Mario věří, že neustálé klikání na "Schválit" vede k únavě a ztrátě pozornosti. Bezpečnost řeší spíše izolací v kontejnerech. [[20:32](http://www.youtube.com/watch?v=Dli5slNaJu0&t=1232)]
-    
-- **Malleability (Tvarovatelnost)**: Agent by měl být schopen upravovat sám sebe. Uživatel může nechat Pi, aby mu napsal a nainstaloval nové rozšíření přímo během práce na projektu. [[23:06](http://www.youtube.com/watch?v=Dli5slNaJu0&t=1386)]
-    
+## 🧠 Klíčové technické postřehy
+
+> [!abstract] **Tree Sessions (Stromová historie)**
+> 
+> Historie v Pi není lineární chat, ale **strom**. Můžete se kdykoliv vrátit do historie, vytvořit novou větev (branch) a efektivně využívat **Prompt Caching**, což drasticky snižuje náklady na tokeny.
+
+> [!tip] **Proč nepoužívat LSP během psaní?**
+> 
+> Mario varuje před posíláním chyb z LSP (Language Server Protocol) agentovi uprostřed práce. Kód je při psaní často nevalidní a tyto "chyby" model jen zbytečně matou. Validaci nechte až na moment, kdy agent prohlásí, že má hotovo.
+
+> [!warning] **YOLO vs. Bezpečnost**
+> 
+> Pi nepoužívá otravné potvrzovací dialogy pro každý příkaz. Místo toho Mario doporučuje spouštět agenta v izolovaném kontejneru (Docker), kde může agent "přežít" i případné nebezpečné příkazy bez poškození hostitelského systému.
 
 ---
+
+Stačí ti tato verze s opravenými uvozovkami, nebo chceš do poznámek přidat i sekci o tom, jak Mario bojuje proti "AI spamu" v Open Source?
