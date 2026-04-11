@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 - AI NEWS/Context mode MCP - claude.md",
+                "file": "01 - AI NEWS/MARP – Markdown Presentation Ecosystem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Context mode MCP - claude"
+              "title": "MARP – Markdown Presentation Ecosystem"
             }
           }
         ]
@@ -178,9 +178,11 @@
   },
   "active": "4c512cc31ccf47b8",
   "lastOpenFiles": [
-    "01 - AI NEWS/Context mode MCP - claude.md",
-    "01 - AI NEWS/Gemma4 lm studio.md",
+    "Andrej Karpathy.md",
+    "01 - AI NEWS/MARP – Markdown Presentation Ecosystem.md",
+    "02 - Claude/Context mode MCP - claude.md",
     "01 - AI NEWS/Pi Coding Agent.md",
+    "01 - AI NEWS/Gemma4 lm studio.md",
     "README.md",
     "02 - Claude",
     "01 - AI NEWS"
