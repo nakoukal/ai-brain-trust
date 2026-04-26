@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 - AI NEWS/MarkItDown.md",
+                "file": "01 - AI NEWS/26-04-16 RN MarkItDown.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "MarkItDown"
+              "title": "26-04-16 RN MarkItDown"
             }
           }
         ]
@@ -196,13 +196,14 @@
   },
   "active": "a879ee6db9d53c55",
   "lastOpenFiles": [
+    "01 - AI NEWS/26-04-16 RN MARP prezentace.md",
     "01 - AI NEWS/26-04-16 RN Pi coding agent.md",
-    "01 - AI NEWS/MarkItDown.md",
-    "02 - Claude/Context mode MCP - claude.md",
+    "README.md",
+    "01 - AI NEWS/26-04-16 RN MarkItDown.md",
     "02 - Claude/26-04-16 RN Karpathy CLAUDE principy.md",
     "02 - Claude/26-04-16 RN Graphify knowledge graph.md",
     "02 - Claude/26-04-02 RN Context mode MCP.md",
-    "01 - AI NEWS/26-04-16 RN MARP prezentace.md",
+    "02 - Claude/Context mode MCP - claude.md",
     "02 - Claude/2026-04-16 RN Graphify knowledge graph.md",
     "02 - Claude/2026-04-16 RN Karpathy CLAUDE principy.md",
     "02 - Claude/Graphify – Knowledge Graph pro Claude Code.md",
@@ -214,7 +215,6 @@
     "01 - AI NEWS/FVE - vyroba.html",
     "02 - Claude",
     "Vítejte.md",
-    "01 - AI NEWS",
-    "README.md"
+    "01 - AI NEWS"
   ]
 }

@@ -21,7 +21,7 @@ description: Poznámka z videa Better Stack o Microsoft MarkItDown, nástroji pr
 # MarkItDown pro document ingestion v AI a RAG pipeline
 
 > [!tldr] TL;DR
-> Video ukazuje [[MarkItDown]] od Microsoftu jako lehkou cestu, jak převádět PDF, Office dokumenty, obrázky, audio, HTML a další formáty do čistého [[Markdown|Markdownu]] pro [[LLM]] workflow. Hlavní pointa: problém špatných odpovědí v [[RAG]] často není model, ale nekvalitní vstup. MarkItDown není nástroj na pixel-perfect převod dokumentů pro lidi, ale praktická vrstva pro [[Document ingestion|document ingestion]], textovou analýzu, indexování a agenty.
+> Video ukazuje [[26-04-16 RN MarkItDown]] od Microsoftu jako lehkou cestu, jak převádět PDF, Office dokumenty, obrázky, audio, HTML a další formáty do čistého [[Markdown|Markdownu]] pro [[LLM]] workflow. Hlavní pointa: problém špatných odpovědí v [[RAG]] často není model, ale nekvalitní vstup. MarkItDown není nástroj na pixel-perfect převod dokumentů pro lidi, ale praktická vrstva pro [[Document ingestion|document ingestion]], textovou analýzu, indexování a agenty.
 
 ## Kontext videa
 
@@ -45,7 +45,7 @@ Pointa videa: místo ladění modelu je často potřeba opravit **kvalitu vstupu
 
 ## Co je MarkItDown
 
-[[MarkItDown]] je open-source Python utilita od Microsoftu pro převod souborů a dokumentů do Markdownu. Podle oficiálního README je určená hlavně pro:
+[[26-04-16 RN MarkItDown]] je open-source Python utilita od Microsoftu pro převod souborů a dokumentů do Markdownu. Podle oficiálního README je určená hlavně pro:
 
 - [[LLM]] workflow,
 - [[RAG]] a embedding pipeline,
